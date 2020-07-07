@@ -1,0 +1,57 @@
+<!-- index.html -->
+<!doctype html>
+<html>
+<head>
+    <title>ADD Photo</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <!-- load bootstrap via CDN -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
+    "></script> <!-- load jquery via CDN -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="/js/add_photo.js">
+    </script> <!-- load our javascript file -->
+</head>
+
+<body>
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <h1>Add new photo</h1>
+
+        <!-- OUR FORM -->
+        <form id="photo_form" name="photo_form" method="POST">
+
+            <!--    PHOTOGRAPHER NAME -->
+            <div id="name-group" class="form-group">
+                <label for="PhotographerName">PhotographerName</label>
+                <input type="text" class="form-control" name="PhotographerName" id="PhotographerName" placeholder="write photographer name here"
+                    required>
+                <!-- errors will go here -->
+            </div>
+
+            <!-- PHOTO NAME -->
+            <div id="name-group" class="form-group">
+                <label for="PhotoName">PhotoName</label>
+                <input type="text" class="form-control" name="PhotoName" id="PhotoName"  placeholder="write photo name here"
+                    required>
+            
+                <!-- errors will go here -->
+            </div>
+
+
+            <!-- EMAIL -->
+            <div id="img-group" class="form-group">
+                <label for="img">Select image:</label>
+                <input type="file" id="img" name="img" accept="image/*">
+                <!-- errors will go here -->
+            </div>
+
+
+
+            <button type="submit" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
