@@ -13,6 +13,7 @@ app.use(userRouter)
 app.use('/main', express.static(path.join(__dirname, './html/index.html')));
 app.use('/add_album', express.static(path.join(__dirname, './html/add_album_form.html')));
 app.use('/add_photo', express.static(path.join(__dirname, './html/add_photo_form.html')));
+app.use('/show_pictures', express.static(path.join(__dirname, './html/show_pictures.html')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
 const server = app.listen(port, () => {
