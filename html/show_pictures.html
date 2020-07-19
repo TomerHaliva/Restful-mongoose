@@ -1,55 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-		
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-        <script>
-            $(document).ready(function() {
-                    $.ajax({
-                        url: "/albums", success: function (result) {
-                            console.log(result);
-                            var index = 1;
-                            for (var key in result) {
-                                var item = result[key];
-                                console.log(item);
-                                $(".tilesWrap").append("<ul id ="+"album"+ +index+ "></ul>");
-								var id = item._id;	
-								var li = '<li>'+'<h3>'+item.name+'</h3>'+'<p>'+item.type+'</p>'+'<p>'+item.author.firstname+' ' +item.author.lastname+'</p>'+'<button onclick="showClick(\''+id+'\')">Show pictures</button>'+'<button onclick ="addPhoto(\''+id+'\')">Add photo</button>';
-                                key++;       
-                            	$("#album"+index).append(li);
-                                index++;
-                                console.log(item);
-                            } 
-                             
-                            
-                        },
-                        error: function (err){
-                            console.log(err); 
-                        }
-                    });  
-                    
-                
-                    this.showClick = function(id){
-                        window.open('/show_pictures?albumid='+id+'','_blank',"toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800");
-                    };
-                    
-                    this.addAlbum = function(){
-                        window.open('/add_album','_blank',"toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800");
-                    };
-
-                    this.addPhoto = function(id){
-                    	window.open('/add_photo?albumid='+id+'','_blank',"toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800");
-                    };
-            });
-
-            
-
-  
-           
-        </script>
+        <script src="/js/show_pictures.js"></script>
         <style>
-            body {
+                        body {
 	background: white;
 }
 .tilesWrap {
@@ -176,40 +131,9 @@ background: linear-gradient(to right, #ffc500, #c21500);
 background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
 background: linear-gradient(to right, #0ABFBC, #FC354C);
 }
-
-.plus-button {
-	border: 2px solid lightgrey;
-	background-color: #fff;
-	font-size: 16px;
-	height: 2.5em;
-	width: 2.5em;
-	border-radius: 999px;
-	position: relative;
-	
-}
-
-.newAlbum{
-	text-align: center;
-}
-	
-.plus-button--large {
-	font-size: 26px;
-}
-	
-
-
-
         </style>
     </head>
-
     <body>
-        <div class = tilesWrap>
-            
-        </div>
-        <div class = "newAlbum">
-			
-			<button class="plus-button plus-button--large" onclick=addAlbum()>+</button>
-        </div>
+        <div class="tilesWrap"></div>
     </body>
-    
 </html>

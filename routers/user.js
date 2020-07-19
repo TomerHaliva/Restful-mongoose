@@ -12,7 +12,7 @@ router.post('/users', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-    User.find({email: 'halivatomer@gmail.com'}).then(user => res.send(user)
+    User.find().then(user => res.send(user)
     ).catch (e=> res.status(500).send())
 })
 

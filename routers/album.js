@@ -16,5 +16,25 @@ router.get('/albums', (req, res) => {
     ).catch (e=> res.status(500).send())
 })
 
+router.put('/albums/:id', (req, res) => {
+    const albumid = req.params["id"];
+    Album.findByIdAndUpdate(
+        { _id: albumid },
+        { $addToSet: {photos: req.body} },
+        function(err, result) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.send(result);
+            }
+          }
+    )
+})
+
+router.get('/albums/:id', (req, res) => {
+    const albumid = req.params["id"];
+    Album.findById(albumid).then(album => res.send(album.photos)
+    ).catch (e=> res.status(500).send())
+})
 
 module.exports = router
